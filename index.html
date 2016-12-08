@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vue Tech Talk</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  </head>
+
+  <body>
+    <div id='app'>
+    <div class='container'>
+      <div class="row">
+        <div class="col-md-6">
+          <input type="text" class="form-control" placeholder="Last Name" v-model="lastName">
+          <span class="last-name-span">{{lastName}}</span>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="First Name" v-model="firstName">
+        <span class="last-name-span">{{firstName}}</span>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <button class="btn btn-primary " id="submit-form" v-on:click='searchForPlayer'>Submit</button>
+        </div>
+      </div>
+
+      <div>
+        <p>First Name: {{displayFirstName}}</p>
+        <p>Last Name: {{displayLastName}}</p>
+        <p>Position: {{position}}</p>
+        <p>#: {{jerseyNumber}}</p>
+        <p>Team: {{teamCity}} {{teamName}}</p>
+      </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="https://unpkg.com/vue@2.0.3/dist/vue.js"></script>
+  <script src="https://unpkg.com/axios@0.12.0/dist/axios.min.js"></script>
+  <script src="./index.js"></script>
+  <script>
+    // Vue.component('player-card', {
+    //   props: [''],
+    //   data: function() {
+    //     return {};
+    //   },
+    //   events: {
+
+    //   },
+    //   methods: {
+
+    //   },
+    //   template: ''
+    // });
+  </script>
+  <script>
+    /*const app = new Vue({
+      el: '#app',
+      data: {
+        firstName: '',
+        lastName: '',
+        playersList: [],
+        displayFirstName: '',
+        displayLastName: '',
+        position: '',
+        teamCity: '',
+        teamName: '',
+        jerseyNumber: ''
+      },
+      methods: {
+        getPlayers: function() {
+          axios.get('https://www.mysportsfeeds.com/api/feed/pull/nfl/2016-2017-regular/active_players.json',{auth: {
+            username: 'canoc62',
+            password: 'Tkdls215'
+          }}).then((response) => {
+            this.playersList = this.playersList.concat(response.data['activeplayers']['playerentry']);
+            console.log(this.playersList);
+          });
+        },
+        searchForPlayer: function() {
+          copyFirstName = this.firstName.toLowerCase();
+          copyLastName = this.lastName.toLowerCase();
+
+          const list = this.playersList;
+          let len = this.playersList.length;
+          for (let i = 0; i < len; i += 1) {
+            if (list[i].player.FirstName.toLowerCase() === copyFirstName && list[i].player.LastName.toLowerCase() === copyLastName) {
+              console.log('HEELLLOOO');
+              this.displayFirstName = list[i].player.FirstName;
+              this.displayLastName = list[i].player.LastName;
+              this.position = list[i].player.position;
+              this.teamCity = list[i].team.City;
+              this.teamName = list[i].team.Name;
+              this.jerseyNumber = list[i].player.JerseyNumber;
+            }
+          }
+        }
+      }
+    });
+
+    app.getPlayers();*/
+  </script>
+</html>
